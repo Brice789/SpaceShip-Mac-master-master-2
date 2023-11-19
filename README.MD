@@ -1,8 +1,13 @@
 <p align="center">
-  <img src="https://gitlab.com/Brice789/cpp-rs-group-1-space-ship/-/blob/main/projet/projetUnix/Images-ReadMe/Capture%20d%E2%80%99%C3%A9cran%202023-11-19%20%C3%A0%2019.48.15.png?ref_type=heads" alt="Logo de Spaceship">
+  <img src="https://gitlab.com/Brice789/cpp-rs-group-1-space-ship/-/blob/main/projet/projetUnix/Images-ReadMe/Capture%20d%E2%80%99%C3%A9cran%202023-11-19%20%C3%A0%2019.48.15.png?ref_type=heads" alt="Logo de Spaceship"width="400" height="300">
 </p>
 
 # Spaceship - Le Jeu Spatial Ultime 🚀
+
+
+<p align="center">
+  <img src="https://gitlab.com/Brice789/cpp-rs-group-1-space-ship/-/raw/main/projet/projetUnix/Images-ReadMe/Capture%20d%E2%80%99%C3%A9cran%202023-11-19%20%C3%A0%2019.48.15.png?ref_type=heads" alt="Capture d'écran du jeu">
+</p>
 
 <p align="center">
   <b>A l'attention de M.Seheux</b>
@@ -28,9 +33,12 @@
 - Vous trouvez donc ci joint l'avant et après de mes projets : 
 - 90bug vs 1 avec la versin actuelle
 
+
 <p align="center">
-  <img src="https://gitlab.com/Brice789/cpp-rs-group-1-space-ship/-/blob/main/projet/projetUnix/Images-ReadMe/Capture%20d%E2%80%99%C3%A9cran%202023-11-19%20%C3%A0%2019.48.15.png?ref_type=heads" alt="Logo de Spaceship">
+  <img src="https://gitlab.com/Brice789/cpp-rs-group-1-space-ship/-/blob/main/projet/projetUnix/Images-ReadMe/Capture%20d%E2%80%99%C3%A9cran%202023-11-19%20%C3%A0%2020.08.29.png?ref_type=heads" alt="Capture d'écran réduite du jeu" width="400" height="300">
 </p>
+
+
 
 - 
 
