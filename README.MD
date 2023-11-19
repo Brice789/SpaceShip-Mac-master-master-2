@@ -38,10 +38,6 @@
   <img src="https://gitlab.com/Brice789/cpp-rs-group-1-space-ship/-/blob/main/projet/projetUnix/Images-ReadMe/Capture%20d%E2%80%99%C3%A9cran%202023-11-19%20%C3%A0%2020.08.29.png?ref_type=heads" alt="Capture d'écran réduite du jeu" width="400" height="300">
 </p>
 
-
-
-- 
-
 <p align="center">
   <b>Utilisation du Score pour la Victoire</b>
 </p>
