@@ -22,13 +22,23 @@ int main(int argc, char* argv[]) {
     int shipsize = 32;
     int missileSize = 20;
 
+
     Controller* controller = new Controller(FPS, shipsize, missileSize);
     controller->LauchGame();
+
+
     delete controller;  // Supprimer le contrôleur permet d'éviter des fuites de mémoire
     return 0;
+
+    
 }
 
 
  
-
+std::string askPlayerName() {
+    std::string playerName;
+    std::cout << "Entrez votre nom: ";
+    std::getline(std::cin, playerName);
+    return playerName;
+}
 

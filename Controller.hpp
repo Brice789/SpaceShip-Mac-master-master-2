@@ -18,8 +18,7 @@ class Controller {
         Model* model;
         View* vue;
         Framework* framework;
-    
 
-};
+    };
 
 #endif

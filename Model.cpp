@@ -12,48 +12,60 @@
 const double MISSILE_SPEED = 5.0;
 const int NUM_ASTEROIDS = 6;
 
-Model::Model(int screenWidth, int screenHeight, Framework* framwework) : m_screenWidth(screenWidth), m_screenHeight(screenHeight) {
+Model::Model(int screenWidth, int screenHeight, Framework* framework) 
+    : m_screenWidth(screenWidth), m_screenHeight(screenHeight), startTime(time(nullptr)), score(0.0f), lastMissileTime(0), hasShieldBeenMaintained(true)  {
 
-    spaceship = new Spaceship(1000, 500, 30.0, 0.0, 1);
+    spaceship = new Spaceship(screenWidth/2, screenHeight/2, 30.0, 0.0, 1.0);
     flyingObjects.push_back(spaceship);
 
     missile = new Missile(340, spaceship->GetY() + spaceship->GetSize() / 2 + 10, 10, 0, 0, 0);
     flyingObjects.push_back(missile);
 
-
     std::mt19937 gen(time(nullptr));
     std::uniform_real_distribution<> disPos(0.0, 1.0);
     std::uniform_real_distribution<> disSize(20.0, 75.0);
 
-
-    for (int i = 0; i < NUM_ASTEROIDS; i++)
-    {
-        double x = rand() % (int)screenWidth;
-        double y = rand() % (int)screenHeight;
+    for (int i = 0; i < NUM_ASTEROIDS; i++) {
+        double x = rand() % screenWidth;
+        double y = rand() % screenHeight;
         double angle = rand() % 360;
         double speed = rand() % 5 + 1;
         flyingObjects.push_back(new Asteroid(x, y, angle, disPos(gen), disPos(gen)));
     }
-
-    for (FlyingObject* flyingObject : flyingObjects) 
-    time_t currentTime = time(nullptr);
 }
-
 void Model::majData() {
     time_t currentTime = time(nullptr);
-    spaceship->SetWarning(false); // Réinitialiser l'état d'alerte à chaque frame
-    missile->IsActive();
+    score = difftime(currentTime, startTime);
+    
+    if (difftime(currentTime, lastMissileTime) >= 180.0 && hasShieldBeenMaintained) { // 3 minutes
+        score += 3.0;
+        hasShieldBeenMaintained = false; // Pour ne pas attribuer les points plusieurs fois
+    }
+        if (spaceship->getShieldLevel() == 0) {
+            std::cout << "Plus de Bouclier, Perdu!" << std::endl;
+    }
+
+    spaceship->SetWarning(false);
 
     for (FlyingObject* flyingObject : flyingObjects) {
         flyingObject->Move(m_screenWidth, m_screenHeight);
 
-        // Détecter les collisions avec les astéroïdes
         if (flyingObject->GetTypeName() == "Asteroid" && FlyingObject::Collide(spaceship, flyingObject)) {
             spaceship->SetWarning(true);
-
             spaceship->reduceShieldLevel(0.1f, currentTime);
         }
     }
+}
+bool Model::isGameWon() const {
+    return score >= 10.0f;
+}
+
+bool Model::isGameOver() const {
+    return spaceship->getShieldLevel() == 0;
+}
+
+float Model::getScore() const {
+    return score;
 }
 
 void Model::appliqueAction(int input) {
@@ -81,6 +93,7 @@ void Model::appliqueAction(int input) {
         case SDLK_SPACE:
             missile->IsActive();
             tirerMissile();
+            //model->launchMissile();
             break;
         default:
             break;
@@ -139,3 +152,11 @@ void Model::UpdateObjects() {
         flyingObject->Move(m_screenWidth, m_screenHeight);
     }
 }
+
+// bool Model::isGameWon() const {
+//     return (score <= 180.0f && spaceship->getShieldLevel() >= 0.5f); // 180 secondes = 3 minutes
+// }
+
+// float Model::getScore() const {
+//     return score;
+// }

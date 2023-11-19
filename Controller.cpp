@@ -40,7 +40,9 @@ void Controller::LauchGame()
         model->majData();  // Mettre à jour les positions et les états des objets volants
         
         vue->rafraichir(flyingObjects);  // Dessiner les objets volants à l'écran
+
     }
 }
+
 
 

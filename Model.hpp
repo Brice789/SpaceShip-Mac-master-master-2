@@ -29,6 +29,14 @@ class Model {
 
         void UpdateObjects();
 
+        bool isGameWon() const;
+        float getScore() const;
+        void updateScore();  
+
+
+            void launchMissile(); // Appelée lors du lancement d'un missile
+        bool isGameOver() const;
+
 
 
 
@@ -39,6 +47,11 @@ class Model {
         Asteroid* asteroid;
         int m_screenWidth;
         int m_screenHeight;
+
+        time_t startTime;  // Temps de début du jeu
+        float score;
+        time_t lastMissileTime; // Pour suivre le temps depuis le dernier lancement de missile
+        bool hasShieldBeenMaintained; // Pour suivre si le bouclier a été maintenu
 };
 
 #endif
