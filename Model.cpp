@@ -73,7 +73,6 @@ void Model::appliqueAction(int input) {
     {
         case SDLK_ESCAPE: 
             exit(0);        
-            break;
         case SDLK_UP:
             // spaceship->SpeedUp(1);
             avancerVaisseau();
